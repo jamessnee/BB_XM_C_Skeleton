@@ -6,16 +6,15 @@
 
 int main() {
 	// Check the LSR_tx reg
-	while((UART3_LSR & TX_FIFO_E) == 0)
-		;
+	while((UART3_LSR & TX_FIFO_E) == 0);
 	
 	// Write out something
 	UART3_THR = '!';
 
 	// Check again and write out when done
-	while((UART3_LSR & TX_FIFO_E) == 0)
-		;
+	while((UART3_LSR & TX_FIFO_E) == 0);
 	UART3_THR = '\n';
 
 	return 1;
 }
+
